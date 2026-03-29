@@ -8,7 +8,6 @@ dependencies = [
     # Gemini API
     "google-genai>=1.67.0",
     # Vector store — FAISS is dependency-free, fast, and production-grade
-    # (ChromaDB was first choice but its onnxruntime dependency dropped macOS x86_64)
     "faiss-cpu>=1.8.0",
     # API server
     "fastapi>=0.115.0",

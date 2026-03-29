@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Backfill script — indexes all images in IMAGES_DIR into ChromaDB.
+Backfill script — indexes all images in IMAGES_DIR into the vector store.
 
 Usage:
     uv run python backfill.py
@@ -32,7 +32,7 @@ _MIN_DELAY = 60.0 / config.RATE_LIMIT_RPM / _CALLS_PER_IMAGE
 
 def process(record) -> bool:
     """
-    Embed one image and upsert into ChromaDB.
+    Embed one image and upsert into the vector store.
     Returns True if newly indexed, False if skipped.
     """
     if exists(record.relative_path):
@@ -118,7 +118,7 @@ def main(images_dir: str) -> None:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Backfill image embeddings into ChromaDB")
+    parser = argparse.ArgumentParser(description="Backfill image embeddings into the vector store")
     parser.add_argument("--images-dir", default=config.IMAGES_DIR)
     args = parser.parse_args()
     main(args.images_dir)

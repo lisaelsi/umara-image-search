@@ -39,7 +39,7 @@ This also solves the duplicate problem: two images with different filenames but 
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    Ingestion Layer                       │
+│                    Ingestion Layer                      │
 │                                                         │
 │  Backfill (one-shot)          New uploads (ongoing)     │
 │  backfill.py CLI              RabbitMQ consumer         │
@@ -50,7 +50,7 @@ This also solves the duplicate problem: two images with different filenames but 
                │                          │
                ▼                          ▼
 ┌─────────────────────────────────────────────────────────┐
-│              Embedding Layer (Gemini API)                │
+│              Embedding Layer (Gemini API)               │
 │                                                         │
 │  gemini-embedding-2-preview                             │
 │  • Image bytes  ──► 3072-dim vector                     │
@@ -59,7 +59,7 @@ This also solves the duplicate problem: two images with different filenames but 
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────┐
-│                    Vector Store (FAISS)                  │
+│                    Vector Store (FAISS)                 │
 │                                                         │
 │  index.faiss  — the vectors                             │
 │  meta.json    — filename, path, size per image          │
@@ -68,7 +68,7 @@ This also solves the duplicate problem: two images with different filenames but 
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────┐
-│                   Search API (FastAPI)                   │
+│                   Search API (FastAPI)                  │
 │                                                         │
 │  GET  /search?q=...     text → image search             │
 │  POST /search/similar   image → image similarity        │

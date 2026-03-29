@@ -18,7 +18,6 @@ Why FAISS over ChromaDB here:
 """
 import hashlib
 import json
-import os
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -28,7 +27,7 @@ import numpy as np
 
 import config
 
-VECTOR_STORE_DIR = Path(config.CHROMA_PERSIST_DIR)  # reuse the env var name
+VECTOR_STORE_DIR = Path(config.VECTOR_STORE_DIR)
 INDEX_FILE = VECTOR_STORE_DIR / "index.faiss"
 META_FILE = VECTOR_STORE_DIR / "meta.json"
 ID_MAP_FILE = VECTOR_STORE_DIR / "id_map.json"

@@ -65,8 +65,10 @@ def health() -> dict:
 
 @app.get("/search", response_model=SearchResponse)
 def text_search(
-    q: str = Query(..., min_length=1, description="Natural language search query"),
-    top_k: int = Query(config.TOP_K, ge=1, le=50, description="Number of results"),
+    q: str = Query(..., min_length=1,
+                   description="Natural language search query"),
+    top_k: int = Query(config.TOP_K, ge=1, le=50,
+                       description="Number of results"),
 ) -> SearchResponse:
     """
     Search by text. Examples:
@@ -85,7 +87,8 @@ def text_search(
 
 @app.post("/search/similar", response_model=SearchResponse)
 async def image_similarity(
-    file: UploadFile = File(..., description="Image file to find similar images for"),
+    file: UploadFile = File(...,
+                            description="Image file to find similar images for"),
     top_k: int = Query(config.TOP_K, ge=1, le=50),
 ) -> SearchResponse:
     """
@@ -93,7 +96,8 @@ async def image_similarity(
     Useful for finding duplicates or variants of a product image.
     """
     if not file.content_type or not file.content_type.startswith("image/"):
-        raise HTTPException(status_code=400, detail="Uploaded file must be an image")
+        raise HTTPException(
+            status_code=400, detail="Uploaded file must be an image")
 
     content = await file.read()
     suffix = Path(file.filename or "upload.jpg").suffix or ".jpg"

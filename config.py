@@ -10,9 +10,8 @@ GEMINI_API_KEY: str = os.environ["GEMINI_API_KEY"]
 EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "gemini-embedding-2-preview")
 VISION_MODEL: str = os.getenv("VISION_MODEL", "gemini-2.0-flash")
 
-# ChromaDB
-CHROMA_PERSIST_DIR: str = os.getenv("CHROMA_PERSIST_DIR", "./chroma_db")
-COLLECTION_NAME: str = os.getenv("COLLECTION_NAME", "image_search")
+# Vector store
+VECTOR_STORE_DIR: str = os.getenv("VECTOR_STORE_DIR", "./vector_store")
 
 # Ingestion
 IMAGES_DIR: str = os.getenv("IMAGES_DIR", "./images")

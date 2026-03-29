@@ -4,8 +4,6 @@ Generates embeddings and (optionally) text descriptions via the Gemini API.
 Model choice: gemini-embedding-2-preview
   - Embeds images AND text in the same vector space (multimodal)
   - No intermediate description step needed for search to work
-  - text-embedding-004 was the alternative but is text-only, requiring
-    a two-step describe→embed pipeline and losing image fidelity
 """
 import io
 from pathlib import Path
