@@ -88,13 +88,8 @@ def describe_image(image_path: Path) -> str:
     response = _client.models.generate_content(
         model=config.VISION_MODEL,
         contents=[
-            types.Content(
-                role="user",
-                parts=[
-                    types.Part.from_bytes(data=image_bytes, mime_type="image/jpeg"),
-                    types.Part(text=DESCRIPTION_PROMPT),
-                ],
-            )
+            types.Part.from_bytes(data=image_bytes, mime_type="image/jpeg"),
+            DESCRIPTION_PROMPT,
         ],
     )
     return response.text.strip()
