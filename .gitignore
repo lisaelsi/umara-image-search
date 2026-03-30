@@ -5,3 +5,4 @@ __pycache__/
 .env
 /vector_store
 .claude
+.DS_Store
