@@ -5,6 +5,7 @@ AI-powered semantic search for an e-commerce media archive. Search images by wha
 Built with Python, Gemini, FAISS, and FastAPI.
 
 > Built with assistance from Claude (Anthropic).
+> Claude writes majority of the code, but I (Lisa) manage version control (for now)
 
 ---
 
